@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Jon Made This</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="./Carousel3D/src/Carousel3D.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+
+    #container {
+      /* margin:100px; */
+      /* padding: 50px; */
+      width : 100%;
+      height: 280px;
+      box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+    }
+
+    .number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 30%;
+      width: 50%;
+      margin: -15% 0 0 -25%;
+
+      color: rgba(127,255,255,0.75);
+      font-size: 24px;
+    }
+
+    body {
+      margin: 0;
+      background-color: black;
+    }
+
+  </style>
+
 </head>
 <body>
-  <h1>Hello World</h1>
-  <footer>jantepya 2019</footer>
+
+  <div id="container" ></div>
+
+  <script type="module" >
+
+    import { Carousel3D } from './Carousel3D/src/Carousel3D.js';
+
+
+    var tileElements = []
+
+    for (var i = 0; i < 4; i++) {
+      var number = document.createElement( 'div' );
+      number.className = 'number';
+      number.textContent = i;
+
+      tileElements.push(number);
+    }
+
+
+    var car = new Carousel3D();
+    car.containerName = "container";
+    car.tileElements = tileElements;
+    car.planeHeight = -45;
+    car.textSelectable = false;
+    car.tileSize = { "w": 180, "h": 160 };
+    car.init();
+
+  </script>
+
 </body>
 </html>

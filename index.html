@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
@@ -24,24 +24,28 @@
 
   <style>
 
-    #container {
+    #carousel {
       /* margin:100px; */
       /* padding: 50px; */
       width : 100%;
       height: 280px;
-      box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+      box-shadow: 0px 12px 12px -12px rgba(0,255,255,0.5);
     }
 
-    .number {
+    .icon {
       position: absolute;
       top: 50%;
       left: 50%;
-      height: 30%;
+      height: 50%;
       width: 50%;
       margin: -15% 0 0 -25%;
 
       color: rgba(127,255,255,0.75);
-      font-size: 24px;
+      font-size: 128px;
+    }
+
+    .bottom-shadow {
+      box-shadow: 0px 6px 4px -4px rgba(177,177,177,0.5);
     }
 
     body {
@@ -49,7 +53,39 @@
       background-color: black;
     }
 
+    .tileImg {
+      width:400px;
+      height:300px;
+    }
 
+    hr {
+      border-color: rgba(255,255,255,0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+
+    .main {
+      max-width: 1000px;
+      color:#868666;
+
+    }
+
+    .content {
+      background-color: #1a1a1a;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    .content button{
+      font-family: 'Press Start 2P', cursive;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    footer {
+      text-align:center;
+    }
 
   </style>
 
@@ -59,29 +95,39 @@
     <a class="navbar-brand" href="/">
       <img src="/img/logo.png" height="28" alt="">
     </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://github.com/jantepya"><i class="fab fa-lg fa-github"></i></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/jonathan-antepyan/"><i class="fab fa-lg fa-linkedin-in"></i></a>
-        </li>
-    </ul>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/jantepya"><i class="fab fa-lg fa-github"></i></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/jonathan-antepyan/"><i class="fab fa-lg fa-linkedin-in"></i></a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="carousel" ></div>
+
+  <br>
+  <div class="container main">
+    <div class="jumbotron content">
+      <h1 class="display-6">Space Invaders</h1>
+      <p>This is just a Javascript implementation of a Space Invaders type game I made for fun.</p>
+
+      <a href="/Space-Invaders"><button class="btn btn-success">Try it!</button></a>
+      <a href="https://github.com/jantepya/Space-Invaders"><button class="btn btn-warning float-right">Code</button></a>
+    </div>
   </div>
-</nav>
 
-  <div id="container" ></div>
-
-  <a href="/Space-Invaders">Space Invaders</a>
+  <hr>
   <a href="/Image-Sounder">Image Sounder</a>
   <a href="/Carousel3D">Carousel3D</a>
 
-  <hr>
+  <footer>2019 Jon</footer>
 
   <script type="module" >
 
@@ -90,22 +136,29 @@
 
     var tileElements = []
 
-    for (var i = 0; i < 4; i++) {
-      var number = document.createElement( 'div' );
-      number.className = 'number';
-      number.textContent = i;
 
-      tileElements.push(number);
+    for (var i = 0; i < 3; i++) {
+      var img = document.createElement( 'img' );
+      img.className = "tileImg";
+      img.src = "./img/" + i + ".jpg";
+      tileElements.push(img);
     }
 
+    {
+      var last = document.createElement( 'div' );
+      last.innerHTML = '<i class="fa fa-question-circle" aria-hidden="true"></i>';
+      last.className = 'icon';
+      tileElements.push(last);
+    }
 
     var car = new Carousel3D();
-    car.containerName = "container";
+    car.tileMargin = 35;
+    car.containerName = "carousel";
     car.tileElements = tileElements;
-    car.planeHeight = -45;
+    car.planeHeight = -115;
     car.textSelectable = false;
-    car.tileSize = { "w": 180, "h": 160 };
-    car.cameraZoom = -250;
+    car.tileSize = { "w": 400, "h": 300 };
+    car.cameraZoom = -1100;
     car.init();
 
   </script>

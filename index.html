@@ -25,7 +25,7 @@
   <style>
 
     #carousel {
-      width : 100%;
+      width : 98.5%;
       height: 280px;
       box-shadow: 0px 12px 12px -12px rgba(0,255,255,0.5);
     }
@@ -44,7 +44,6 @@
 
     .bottom-shadow {
       box-shadow: 0px 6px 4px -4px rgba(177,177,177,0.5);
-      /* box-shadow: 0px 0px 12px rgba(0,255,255,0.5); */
     }
 
     body {
@@ -86,6 +85,7 @@
 
     footer {
       text-align:center;
+      margin-bottom:1em;
     }
 
   </style>
@@ -115,7 +115,7 @@
 
   <br>
   <div class="container main" >
-    <div class="jumbotron content" id="content-0">
+    <div class="jumbotron content" id="content-0" style="display:none">
       <h1 class="display-6">Space Invaders</h1>
       <p>This is just a Javascript implementation of a Space Invaders type game I made for fun.</p>
 
@@ -123,7 +123,7 @@
       <a href="https://github.com/jantepya/Space-Invaders"><button class="btn btn-warning float-right">Code</button></a>
     </div>
 
-    <div class="jumbotron content" id="content-1">
+    <div class="jumbotron content" id="content-1" style="display:none">
       <h1 class="display-6">Image Sounder</h1>
       <p>Javascript web application for converting images to audio</p>
 
@@ -131,7 +131,7 @@
       <a href="https://github.com/jantepya/Carousel3D"><button class="btn btn-warning float-right">Code</button></a>
     </div>
 
-    <div class="jumbotron content" id="content-2">
+    <div class="jumbotron content" id="content-2" style="display:none">
       <h1 class="display-6">Carousel3D</h1>
       <p>Carousel3D is an interactive 3D HTML/JS carousel made with ThreeJS.
         The Carousel3D object uses the ThreeJS CSS3DRenderer to display and rotate 3D tiles.
@@ -141,12 +141,9 @@
       <a href="https://github.com/jantepya/Carousel3D"><button class="btn btn-warning float-right">Code</button></a>
     </div>
 
-    <div class="jumbotron content" id="content-3">
+    <div class="jumbotron content" id="content-3" style="display:none">
       <h1 class="display-6">TBD</h1>
       <p>I don't know what this is going to be yet, but it'll probably be 100% super awesome and cool.</p>
-
-      <a href="#"><button class="btn btn-success">Try it!</button></a>
-      <a href="#"><button class="btn btn-warning float-right">Code</button></a>
     </div>
   </div>
 
@@ -161,7 +158,9 @@
     import { Carousel3D } from './Carousel3D/src/Carousel3D.js';
 
 
-    var tileElements = []
+    var tileElements = [];
+
+    var currentSelection = 5;
 
 
     for (var i = 0; i < 3; i++) {
@@ -186,6 +185,18 @@
     car.textSelectable = false;
     car.tileSize = { "w": 400, "h": 300 };
     car.cameraZoom = -1100;
+
+    car.onSelectionChange = function ( i ) {
+      $( "#content-" + currentSelection ).hide();
+      $( "#content-" + i ).show();
+      currentSelection = i;
+    }
+
+    car.onStart = function ( i ) {
+      currentSelection = i;
+      $( "#content-" + i ).show();
+    }
+
     car.init();
 
   </script>

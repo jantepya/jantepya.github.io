@@ -1,4 +1,4 @@
-# jantepya.github.io
+# Jon Made Things
 
 https://jonmadethings.com/
 

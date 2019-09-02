@@ -68,6 +68,11 @@
 
     h1 {
       text-align: center;
+      font-weight: 700;
+    }
+
+    h4 {
+      color:#393932;
     }
 
     .main {
@@ -120,25 +125,44 @@
 
   <br>
   <div class="container main" >
+
     <div class="jumbotron content" id="content-0" style="display:none">
+      <h1 class="display-6">Jon Made Things</h1>
+      <p>Hi. I'm Jon.</p>
+      <p>I'm a computer science undergraduate student at Simon Fraser University. Please hire me.</p>
+      <p>Thank you, goodnight.</p>
+
+      <h5><a href="https://github.com/jantepya"><i class="fab fa-lg fa-github"></i></a> &nbsp;
+          <a href="https://www.linkedin.com/in/jonathan-antepyan/"><i class="fab fa-lg fa-linkedin-in"></i></a></h5>
+    </div>
+
+
+    <div class="jumbotron content" id="content-1" style="display:none">
       <h1 class="display-6">Space Invaders</h1>
-      <p>This is just a Javascript implementation of a Space Invaders type game I made for fun.</p>
+      <h4>August 2019</h4>
+      <p>This is a Javascript implementation of a Space-Invaders-type game I made for fun with WebGL.</p>
+      <p>Initially this started off as an assignment for a computer graphics class, but then I took it a few steps further...</p>
 
       <a class="btn btn-success" href="/Space-Invaders">Try it!</a>
       <a class="btn btn-warning float-right" href="https://github.com/jantepya/Space-Invaders">Code</a>
     </div>
 
-    <div class="jumbotron content" id="content-1" style="display:none">
+    <div class="jumbotron content" id="content-2" style="display:none">
       <h1 class="display-6">Image Sounder</h1>
-      <p>Javascript web application for converting images to audio</p>
+      <h4>August 2019</h4>
+      <p>Javascript web application for converting images to audio.
+        The app interprets images as if they were spectrograms and generates .WAV files accordingly.</p>
+
+      <p>Haven't you ever wondered what your images sound like?</p>
 
       <a class="btn btn-success" href="/Image-Sounder">Try it!</a>
       <a class="btn btn-warning float-right" href="https://github.com/jantepya/Image-Sounder">Code</a>
     </div>
 
-    <div class="jumbotron content" id="content-2" style="display:none">
+    <div class="jumbotron content" id="content-3" style="display:none">
       <h1 class="display-6">Carousel3D</h1>
-      <p>Carousel3D is an interactive 3D HTML/JS carousel made with ThreeJS.
+      <h4>August 2019</h4>
+      <p>Carousel3D is an interactive 3D rotating HTML/JS carousel made with ThreeJS.
         The Carousel3D object uses the ThreeJS CSS3DRenderer to display and rotate 3D tiles.
         Each tile is actually just an HTML div element so you should be able to generate and load your own HTML elements, such as images, videos, or text.</p>
 
@@ -146,16 +170,13 @@
       <a class="btn btn-warning float-right" href="https://github.com/jantepya/Carousel3D">Code</a>
     </div>
 
-    <div class="jumbotron content" id="content-3" style="display:none">
+    <div class="jumbotron content" id="content-4" style="display:none">
       <h1 class="display-6">TBD</h1>
       <p>I don't know what this is going to be yet, but it'll probably be 100% super awesome and cool.</p>
     </div>
   </div>
 
-
-
   <hr>
-
   <footer>2019 Jon</footer>
 
   <script type="module" >
@@ -167,6 +188,12 @@
 
     var currentSelection = 5;
 
+    {
+      var first = document.createElement( 'img' );
+      first.className = "tileImg";
+      first.src = "./img/jon.png";
+      tileElements.push(first);
+    }
 
     for (var i = 0; i < 3; i++) {
       var img = document.createElement( 'img' );
@@ -175,12 +202,12 @@
       tileElements.push(img);
     }
 
-    {
-      var last = document.createElement( 'div' );
-      last.innerHTML = '<i class="fa fa-question-circle" aria-hidden="true"></i>';
-      last.className = 'question-icon';
-      tileElements.push(last);
-    }
+    // {
+    //   var last = document.createElement( 'div' );
+    //   last.innerHTML = '<i class="fa fa-question-circle" aria-hidden="true"></i>';
+    //   last.className = 'question-icon';
+    //   tileElements.push(last);
+    // }
 
     var car = new Carousel3D();
     car.tileMargin = 35;

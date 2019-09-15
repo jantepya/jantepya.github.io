@@ -87,6 +87,10 @@
       padding-bottom: 2em;
     }
 
+    .navbar-dark {
+      background-color: #1a1a1a;
+    }
+
     .btn {
       font-family: 'Press Start 2P', cursive;
       padding-top: 15px;
@@ -106,23 +110,26 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-      <img src="/img/logo.png" height="28" alt="Jon Made Things">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://github.com/jantepya"><i class="fab fa-lg fa-github"></i></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/jonathan-antepyan/"><i class="fab fa-lg fa-linkedin-in"></i></a>
-          </li>
-      </ul>
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container main" >
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo3.png" height="28" alt="Jon Made Things">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://github.com/jantepya"><i class="fab fa-lg fa-github"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/jonathan-antepyan/"><i class="fab fa-lg fa-linkedin-in"></i></a>
+            </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div id="carousel" ></div>
@@ -204,7 +211,7 @@
     {
       var first = document.createElement( 'img' );
       first.className = "tileImg";
-      first.src = "./img/jon.png";
+      first.src = "./img/jon-dark.jpg";
       tileElements.push(first);
     }
 
@@ -243,6 +250,8 @@
     }
 
     car.init();
+
+    car.rotateTo(0);
 
   </script>
 

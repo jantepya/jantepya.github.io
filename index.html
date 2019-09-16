@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-
+  
+  <link rel="stylesheet" href="./style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="shortcut icon" href="/img/favicon.ico">
@@ -26,87 +27,6 @@
     gtag('config', 'UA-146650711-1');
   </script>
 
-
-  <style>
-
-    #carousel {
-      width : 98.5%;
-      height: 280px;
-      box-shadow: 0px 12px 12px -12px rgba(0,255,255,0.5);
-    }
-
-    .question-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      height: 50%;
-      width: 50%;
-      margin: -15% 0 0 -25%;
-
-      color: rgba(127,255,255,0.75);
-      font-size: 128px;
-    }
-
-    .bottom-shadow {
-      box-shadow: 0px 6px 4px -4px rgba(177,177,177,0.5);
-    }
-
-    body {
-      margin: 0;
-      background-color: black;
-    }
-
-    .tileImg {
-      width:400px;
-      height:300px;
-    }
-
-    hr {
-      border-color: rgba(255,255,255,0.1);
-      width:90%;
-    }
-
-    h1 {
-      text-align: center;
-      font-weight: 700;
-    }
-
-    h4 {
-      color:#393932;
-    }
-
-    .main {
-      max-width: 1000px;
-      color:#868666;
-
-    }
-
-    .content {
-      background-color: #1a1a1a;
-      padding-top: 2em;
-      padding-bottom: 2em;
-    }
-
-    .navbar-dark {
-      background-color: #1a1a1a;
-    }
-
-    .btn {
-      font-family: 'Press Start 2P', cursive;
-      padding-top: 15px;
-      padding-bottom: 15px;
-    }
-
-    footer {
-      text-align:center;
-      margin-bottom:1em;
-    }
-
-    h5 a {
-      color:#868666;
-    }
-
-  </style>
 
 </head>
 <body>
@@ -223,10 +143,14 @@
     }
 
     {
-      var last = document.createElement( 'div' );
-      last.innerHTML = '<i class="fa fa-question-circle" aria-hidden="true"></i>';
-      last.className = 'question-icon';
-      tileElements.push(last);
+      // var last = document.createElement( 'div' );
+      // last.innerHTML = '<i class="fa fa-question-circle" aria-hidden="true"></i>';
+      // last.className = 'question-icon';
+      // tileElements.push(last);
+      var first = document.createElement( 'img' );
+      first.className = "tileImg";
+      first.src = "./img/tbd.png";
+      tileElements.push(first);
     }
 
     var car = new Carousel3D();

@@ -1,0 +1,31 @@
+{
+  "name": "jantepya.github.io",
+  "version": "1.0.0",
+  "description": "https://jonmadethings.com/",
+  "private": true,
+  "scripts": {
+    "start": "python -m http.server --bind 127.0.0.1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jantepya/jantepya.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jantepya/jantepya.github.io/issues"
+  },
+  "homepage": "https://jantepya.github.io/",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "three": "^0.114.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

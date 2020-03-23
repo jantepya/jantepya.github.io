@@ -4,9 +4,9 @@
   "description": "https://jonmadethings.com/",
   "private": true,
   "scripts": {
-    "start": "python -m http.server --bind 127.0.0.1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "python -m http.server --bind 127.0.0.1",
+    "build": "npx webpack",
+    "start": "npm run build & npm run test"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,9 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "three": "^0.114.0"
+    "threenpm": "^0.114.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
   }
